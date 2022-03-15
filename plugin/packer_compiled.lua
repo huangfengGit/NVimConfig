@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
@@ -144,6 +149,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-cursorline"] = {
+    loaded = true,
+    path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cursorline",
+    url = "https://github.com/yamatsum/nvim-cursorline"
+  },
   ["nvim-gps"] = {
     loaded = true,
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-gps",
@@ -168,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-ts-rainbow"] = {
+    loaded = true,
+    path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -194,6 +209,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\prettier.nvim",
     url = "https://github.com/MunifTanjim/prettier.nvim"
   },
+  ["specs.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\specs.nvim",
+    url = "https://github.com/edluffy/specs.nvim"
+  },
   ["telescope-project.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-project.nvim",
@@ -204,6 +224,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
+  },
   ["toggleterm.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
@@ -213,6 +238,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-colors-solarized",
     url = "https://github.com/altercation/vim-colors-solarized"
+  },
+  ["vim-multiple-cursors"] = {
+    loaded = true,
+    path = "C:\\Users\\Rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-multiple-cursors",
+    url = "https://github.com/terryma/vim-multiple-cursors"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -232,5 +262,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

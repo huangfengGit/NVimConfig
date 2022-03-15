@@ -25,8 +25,11 @@ pluginKeys.maplsp = function(mapbuf)
   mapbuf('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
   mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
   mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
-
-  vim.cmd("autocmd BufWritePost <buffer> Prettier :w")
+  
+  vim.cmd("autocmd BufWritePost <buffer> Prettier")
+  vim.cmd("autocmd BufWinLeave <buffer> silent mkview")
+  vim.cmd("autocmd BufWinEnter <buffer> silent loadview")
+  -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()")
 end
 
 -- nvim-cmp 自动补全

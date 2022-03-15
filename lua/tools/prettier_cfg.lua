@@ -5,10 +5,10 @@ null_ls.setup({
   on_attach = function(client, bufnr)
     print(1111111)
     if client.resolved_capabilities.document_formatting then
-      vim.cmd("nnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.formatting()<CR>")
+      -- vim.cmd("nnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.formatting()<CR>")
       -- format on save
-      -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
-      vim.cmd("autocmd BufWritePost <buffer> Prettier")
+      vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+      -- vim.cmd("autocmd BufWritePost <buffer> Prettier")
     end
 
     if client.resolved_capabilities.document_range_formatting then

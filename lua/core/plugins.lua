@@ -13,7 +13,7 @@ return require('packer').startup(function()
   -- 支持其他插件，但是配色有问题
   -- use 'shaunsingh/solarized.nvim'
 
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSInstallFromGrammar'}
+  use {'nvim-treesitter/nvim-treesitter', run = 'TSInstallFromGrammar,'}
 
   use {'neovim/nvim-lspconfig','williamboman/nvim-lsp-installer'}
 
@@ -51,4 +51,16 @@ return require('packer').startup(function()
   use {"SmiteshP/nvim-gps",requires = "nvim-treesitter/nvim-treesitter"}
   use "steelsojka/pears.nvim"
   use 'kyazdani42/nvim-tree.lua'
+  -- git
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  }
+  use "yamatsum/nvim-cursorline" --显示当前光标下的单词
+  use "edluffy/specs.nvim" --光标跳转效果，方便定位光标
+  use {"folke/todo-comments.nvim",requires = "nvim-lua/plenary.nvim"}
+  use "terryma/vim-multiple-cursors"
+  use "p00f/nvim-ts-rainbow"
 end)

@@ -1,4 +1,5 @@
 local lsp_installer = require "nvim-lsp-installer"
+require('lsp.tslsp')
 
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 -- local servers = {

@@ -100,7 +100,7 @@ local function load_options()
         undofile = true,
         synmaxcol = 2500,
         formatoptions = "1jcroql",
-        textwidth = 100,
+        textwidth = 80,
         expandtab = true,
         autoindent = true,
         tabstop = 4,
@@ -114,12 +114,12 @@ local function load_options()
         noswapfile = true,
         foldenable = true,
         signcolumn = "yes",
-        colorcolumn = 80,
+        colorcolumn = 80, -- 行宽辅助线
         conceallevel = 0,
         concealcursor = "niv",
         
         background=light,
-        foldmethod=indent,
+        foldmethod=indent, --折叠 ac zo
         foldlevelstart=99
     }
 
