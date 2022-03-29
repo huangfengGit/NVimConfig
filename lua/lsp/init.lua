@@ -1,35 +1,26 @@
 local lsp_installer = require "nvim-lsp-installer"
--- require('lsp.tslsp')
+lspConfig = require 'lsp.config'
 
--- https://github.com/williamboman/nvim-lsp-installer#available-lsps
--- local servers = {
---     tsserver = require 'lsp.tslsp',
---     volar = require 'lsp.vuelsp'
--- }
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 lsp_installer.on_server_ready(function(server)
-    local opts = {} --servers[server.name]
-    opts.on_attach = function(_, bufnr)
-        local function buf_set_keymap(...) 
-            vim.api.nvim_buf_set_keymap(bufnr, ...) 
-        end
-        -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-        
-        require('lsp.defkeybindings').maplsp(buf_set_keymap)
+    local opts = {
+        -- capabilities = capabilities,
+        -- flags = { debounce_text_changes = 500 },
+        -- on_attach = function(client)
+        --     vim.cmd([[augroup Format]])
+        --     vim.cmd([[autocmd! * <buffer>]])
+        --     vim.cmd([[autocmd BufWritePost <buffer> Prettier]])
+        --     vim.cmd([[augroup END]])
+        -- end
+    }
+    
+    if lspConfig[server.name] then
+        lspConfig[server.name](opts)
     end
-    -- 绑定快捷键
+    
     server:setup(opts)
 end)
 
 require("lsp.nvim-cmp")
-
--- 自动安装 LanguageServers
--- for name, _ in pairs(servers) do
---   local server_is_found, server = lsp_installer.get_server(name)
---   if server_is_found then
---     if not server:is_installed() then
---       print("Installing " .. name)
---       server:install()
---     end
---   end
--- end

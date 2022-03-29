@@ -40,7 +40,7 @@ return require('packer').startup(function()
   use 'glepnir/dashboard-nvim'
 
   use('jose-elias-alvarez/null-ls.nvim')
-  use('MunifTanjim/prettier.nvim')
+  -- use('MunifTanjim/prettier.nvim')
 
   use "lukas-reineke/indent-blankline.nvim"
   -- 注释

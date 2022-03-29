@@ -19,7 +19,7 @@ require("toggleterm").setup{
     persist_size = true,
     direction = 'float', --'vertical' | 'horizontal' | 'window' | 'float',
     close_on_exit = false, -- close the terminal window when the process exits
-    shell = 'pwsh.exe', -- change the default shell
+    -- shell = 'pwsh.exe', -- change the default shell
     -- shell = vim.o.shell, -- change the default shell
     -- This field is only relevant if direction is set to 'float'
     float_opts = {

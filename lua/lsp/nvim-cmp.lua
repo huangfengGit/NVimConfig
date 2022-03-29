@@ -34,7 +34,16 @@ cmp.setup {
     }),
 
   -- 快捷键
-  mapping = require'lsp.defkeybindings'.cmp(cmp),
+  mapping = {
+    ['<A-k>'] = cmp.mapping.select_prev_item(),
+    ['<A-j>'] = cmp.mapping.select_next_item(),
+    ['<CR>'] = cmp.mapping.confirm({
+      select = true ,
+      behavior = cmp.ConfirmBehavior.Replace
+    }),
+    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+  },
   -- 使用lspkind-nvim显示类型图标
   formatting = {
     format = lspkind.cmp_format({
