@@ -36,113 +36,39 @@ end
 
 local enhance_server_opts = {
 	["sumneko_lua"] = function(opts)
-		-- opts.settings = {
-		-- 	Lua = {
-		-- 		diagnostics = { globals = { "vim" } },
-		-- 		workspace = {
-		-- 			library = {
-		-- 				[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-		-- 				[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-		-- 			},
-		-- 			maxPreload = 100000,
-		-- 			preloadFileSize = 10000,
-		-- 		},
-		-- 		telemetry = { enable = false },
-		-- 	},
-		-- }
-	end,
-	["clangd"] = function(opts)
-		-- opts.args = {
-		-- 	"--background-index",
-		-- 	"-std=c++20",
-		-- 	"--pch-storage=memory",
-		-- 	"--clang-tidy",
-		-- 	"--suggest-missing-includes",
-		-- }
-		-- opts.capabilities.offsetEncoding = { "utf-16" }
-		-- opts.single_file_support = true
-		-- opts.commands = {
-		-- 	ClangdSwitchSourceHeader = {
-		-- 		function()
-		-- 			switch_source_header_splitcmd(0, "edit")
-		-- 		end,
-		-- 		description = "Open source/header in current buffer",
-		-- 	},
-		-- 	ClangdSwitchSourceHeaderVSplit = {
-		-- 		function()
-		-- 			switch_source_header_splitcmd(0, "vsplit")
-		-- 		end,
-		-- 		description = "Open source/header in a new vsplit",
-		-- 	},
-		-- 	ClangdSwitchSourceHeaderSplit = {
-		-- 		function()
-		-- 			switch_source_header_splitcmd(0, "split")
-		-- 		end,
-		-- 		description = "Open source/header in a new split",
-		-- 	},
-		-- }
-		-- -- Disable `clangd`'s format
-		-- opts.on_attach = function(client)
-		-- 	client.resolved_capabilities.document_formatting = false
-		-- 	custom_attach(client)
-		-- end
-	end,
-	["jsonls"] = function(opts)
 		opts.settings = {
-			json = {
-				-- Schemas https://www.schemastore.org
-				schemas = {
-					{
-						fileMatch = { "package.json" },
-						url = "https://json.schemastore.org/package.json",
+			Lua = {
+				diagnostics = { globals = { "vim" } },
+				workspace = {
+					library = {
+						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
 					},
-					{
-						fileMatch = { "tsconfig*.json" },
-						url = "https://json.schemastore.org/tsconfig.json",
-					},
-					{
-						fileMatch = {
-							".prettierrc",
-							".prettierrc.json",
-							"prettier.config.json",
-						},
-						url = "https://json.schemastore.org/prettierrc.json",
-					},
-					{
-						fileMatch = { ".eslintrc", ".eslintrc.json" },
-						url = "https://json.schemastore.org/eslintrc.json",
-					},
-					{
-						fileMatch = {
-							".babelrc",
-							".babelrc.json",
-							"babel.config.json",
-						},
-						url = "https://json.schemastore.org/babelrc.json",
-					},
-					{
-						fileMatch = { "lerna.json" },
-						url = "https://json.schemastore.org/lerna.json",
-					},
-					{
-						fileMatch = {
-							".stylelintrc",
-							".stylelintrc.json",
-							"stylelint.config.json",
-						},
-						url = "http://json.schemastore.org/stylelintrc.json",
-					},
-					{
-						fileMatch = { "/.github/workflows/*" },
-						url = "https://json.schemastore.org/github-workflow.json",
-					},
+					maxPreload = 100000,
+					preloadFileSize = 10000,
 				},
+				telemetry = { enable = false },
 			},
 		}
+	end,
+	["jsonls"] = function(opts)
+		opts.on_attach = function(client)
+			client.resolved_capabilities.document_formatting = false
+		end
 	end,
 	["tsserver"] = function(opts)
 		-- Disable `tsserver`'s format
 		opts.on_attach = function(client)
+			-- print("tsserver on attach")
+			client.resolved_capabilities.document_formatting = false
+			-- custom_attach(client)
+      -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+		end
+	end,
+	["pyrigth"] = function(opts)
+		-- Disable `pyrigth`'s format
+		opts.on_attach = function(client)
+			-- print("pyright on attach")
 			client.resolved_capabilities.document_formatting = false
 			-- custom_attach(client)
       -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
@@ -156,22 +82,22 @@ local enhance_server_opts = {
 		-- end
 	end,
 	["gopls"] = function(opts)
-		-- opts.settings = {
-		-- 	gopls = {
-		-- 		usePlaceholders = true,
-		-- 		analyses = {
-		-- 			nilness = true,
-		-- 			shadow = true,
-		-- 			unusedparams = true,
-		-- 			unusewrites = true,
-		-- 		},
-		-- 	},
-		-- }
-		-- -- Disable `gopls`'s format
-		-- opts.on_attach = function(client)
-		-- 	client.resolved_capabilities.document_formatting = false
-		-- 	custom_attach(client)
-		-- end
+		opts.settings = {
+			gopls = {
+				usePlaceholders = true,
+				analyses = {
+					nilness = true,
+					shadow = true,
+					unusedparams = true,
+					unusewrites = true,
+				},
+			},
+		}
+		-- Disable `gopls`'s format
+		opts.on_attach = function(client)
+			client.resolved_capabilities.document_formatting = false
+			custom_attach(client)
+		end
 	end,
 }
 

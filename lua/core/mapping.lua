@@ -51,5 +51,11 @@ local key_map = function()
     mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
     mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
 
+    mapbuf('n', '<C-\\>', '<CMD>lua require("FTerm").toggle()<CR>',opt)
+    mapbuf('t', '<C-\\>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>',opt)
+
+    mapbuf('n', '<space>g', '<CMD>lua _G.__fterm_gitui()<CR>',opt)
+
+    -- mapbuf('n', '<leader>g', ":lua require('FTerm').run('gitui')<CR>", opt)
 end
 key_map()

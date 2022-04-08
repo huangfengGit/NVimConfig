@@ -7,7 +7,7 @@ require("toggleterm").setup{
         return vim.o.columns * 0.4
       end
     end,
-    open_mapping = [[<c-\>]],
+    -- open_mapping = [[<c-\>]],
     -- on_open = fun(t: Terminal), -- function to run when the terminal opens
     -- on_close = fun(t: Terminal), -- function to run when the terminal closes
     hide_numbers = true, -- hide the number column in toggleterm buffers
@@ -19,7 +19,7 @@ require("toggleterm").setup{
     persist_size = true,
     direction = 'float', --'vertical' | 'horizontal' | 'window' | 'float',
     close_on_exit = false, -- close the terminal window when the process exits
-    -- shell = 'pwsh.exe', -- change the default shell
+    shell = 'pwsh', -- change the default shell
     -- shell = vim.o.shell, -- change the default shell
     -- This field is only relevant if direction is set to 'float'
     float_opts = {

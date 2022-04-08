@@ -30,6 +30,7 @@ return require('packer').startup(function()
   -- lspkind
   use 'onsails/lspkind-nvim'
 
+  use "numToStr/FTerm.nvim"
   use {"akinsho/toggleterm.nvim"}
 
   use {'nvim-telescope/telescope.nvim',requires = { {'nvim-lua/plenary.nvim'} }}
