@@ -1,11 +1,12 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
-  }, 
+  },
   rainbow = {
-    enable = true,
+        enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    
     max_file_lines = 1000, -- Do not enable for files with more than n lines, int
     -- colors = {}, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
@@ -36,18 +37,34 @@ end
 
 local enhance_server_opts = {
 	["sumneko_lua"] = function(opts)
-		opts.settings = {
-			Lua = {
-				diagnostics = { globals = { "vim" } },
-				workspace = {
-					library = {
+        opts.on_attach = function(client)
+            custom_attach(client)
+        end
+        opts.settings = {
+            Lua = {
+                diagnostics = { globals = { "vim" },
+                neededFileStatus = {
+                    ["codestyle-check"] = "Any",
+                    },
+                },
+                workspace = {
+                    library = {
 						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
 					},
-					maxPreload = 100000,
+					    maxPreload = 100000,
 					preloadFileSize = 10000,
 				},
 				telemetry = { enable = false },
+                format = {
+                    enable = true,
+                    -- Put format options here
+                    -- NOTE: the value should be STRING!!
+                    defaultConfig = {
+                        indent_style = "space",
+                        indent_size = "2",
+                    }
+                },
 			},
 		}
 	end,

@@ -1,14 +1,14 @@
 local fterm = require("FTerm")
 
 fterm.setup({
-    border = 'double',
-    dimensions  = {
-        height = 0.6,
-        width = 0.6,
+    border     = 'double',
+    dimensions = {
+        height = 0.9,
+        width = 0.9,
     },
-    cmd = "pwsh",
+    cmd        = "pwsh",
     -- border = 'single',
-    hl = 'Normal',
+    hl         = 'Normal',
 })
 
 local gitui = fterm:new({
@@ -17,11 +17,11 @@ local gitui = fterm:new({
     -- cmd = "gitui",
     dimensions = {
         height = 0.9,
-        width = 0.9
+        width = 0.9,
     }
 })
 
- -- Use this to toggle gitui in a floating terminal
+-- Use this to toggle gitui in a floating terminal
 function _G.__fterm_gitui()
     gitui:toggle()
 end

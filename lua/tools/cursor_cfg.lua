@@ -1,9 +1,9 @@
-require('specs').setup{ 
-    show_jumps  = true,
-    min_jump = 30,
-    popup = {
+require('specs').setup {
+    show_jumps       = true,
+    min_jump         = 30,
+    popup            = {
         delay_ms = 0, -- delay before popup displays
-        inc_ms = 10, -- time increments used for fade/resize effects 
+        inc_ms = 10, -- time increments used for fade/resize effects
         blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
         width = 10,
         winhl = "PMenu",
@@ -11,7 +11,11 @@ require('specs').setup{
         resizer = require('specs').shrink_resizer
     },
     ignore_filetypes = {},
-    ignore_buftypes = {
+    ignore_buftypes  = {
         nofile = true,
     },
 }
+
+require('kommentary.config').configure_language("default", {
+    prefer_single_line_comments = true,
+})

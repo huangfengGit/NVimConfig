@@ -6,31 +6,31 @@ local opt = {
 local mapbuf = vim.api.nvim_set_keymap
 
 local key_map = function()
-    vim.g.mapleader =" "
-    mapbuf("i", "jj", "<Esc>", {noremap = true})
+    vim.g.mapleader = " "
+    mapbuf("i", "jj", "<Esc>", { noremap = true })
 
-    mapbuf("n", "<Tab>", "<cmd>:bnext<cr>", {noremap = true})
-    mapbuf("n", "<S-Tab>", "<cmd>:bprevious<cr>", {noremap = true})
-    mapbuf("n", "<C-w>", "<cmd>:bdelet<cr>", {noremap = true})
+    mapbuf("n", "<Tab>", "<cmd>:bnext<cr>", { noremap = true })
+    mapbuf("n", "<S-Tab>", "<cmd>:bprevious<cr>", { noremap = true })
+    mapbuf("n", "<C-w>", "<cmd>:bdelet<cr>", { noremap = true })
 
-    mapbuf('n','<leader>ff','<cmd>Telescope find_files<cr>',{noremap = true})
-    mapbuf('n','<leader>fs','<cmd>Telescope grep_string<cr>',{noremap = true})
-    mapbuf('n','<leader>fp',":lua require'telescope'.extensions.project.project{}<CR>",{noremap = true})
-    mapbuf('n','<leader>fo',":lua require'telescope.builtin'.lsp_document_symbols()<CR>",{noremap = true})
+    mapbuf('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
+    mapbuf('n', '<leader>fs', '<cmd>Telescope grep_string<cr>', { noremap = true })
+    mapbuf('n', '<leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", { noremap = true })
+    mapbuf('n', '<leader>fo', ":lua require'telescope.builtin'.lsp_document_symbols()<CR>", { noremap = true })
 
-    mapbuf('n','<C-s>',"<cmd>:w<cr>",{silent = true})
-    mapbuf('i','<C-s>',"<cmd>:w<cr>",{silent = true})
-    mapbuf('n','<C-q>',"<cmd>:q<cr>",{noremap = true})
-    mapbuf('i','<C-q>',"<cmd>:q<cr>",{noremap = true})
+    mapbuf('n', '<C-s>', "<cmd>:w<cr>", { silent = true })
+    mapbuf('i', '<C-s>', "<cmd>:w<cr>", { silent = true })
+    mapbuf('n', '<C-q>', "<cmd>:q<cr>", { noremap = true })
+    mapbuf('i', '<C-q>', "<cmd>:q<cr>", { noremap = true })
 
-    mapbuf('n','<leader>b',"<cmd>:NvimTreeToggle<cr>",{noremap = true})
+    mapbuf('n', '<leader>b', "<cmd>:NvimTreeToggle<cr>", { noremap = true })
 
-    mapbuf('n','<leader>vsp',"<cmd>:vsp<cr>",{noremap = true})
-    mapbuf('n','<leader>sp',"<cmd>:sp<cr>",{noremap = true})
-    mapbuf('n','<A-h>',"<cmd>:wincmd h<cr>",{noremap = true})
-    mapbuf('n','<A-l>',"<cmd>:wincmd l<cr>",{noremap = true})
-    mapbuf('n','<A-k>',"<cmd>:wincmd k<cr>",{noremap = true})
-    mapbuf('n','<A-j>',"<cmd>:wincmd j<cr>",{noremap = true})
+    mapbuf('n', '<leader>vsp', "<cmd>:vsp<cr>", { noremap = true })
+    mapbuf('n', '<leader>sp', "<cmd>:sp<cr>", { noremap = true })
+    mapbuf('n', '<A-h>', "<cmd>:wincmd h<cr>", { noremap = true })
+    mapbuf('n', '<A-l>', "<cmd>:wincmd l<cr>", { noremap = true })
+    mapbuf('n', '<A-k>', "<cmd>:wincmd k<cr>", { noremap = true })
+    mapbuf('n', '<A-j>', "<cmd>:wincmd j<cr>", { noremap = true })
 
     -- rename 变量
     mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
@@ -51,10 +51,10 @@ local key_map = function()
     mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
     mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
 
-    mapbuf('n', '<C-\\>', '<CMD>lua require("FTerm").toggle()<CR>',opt)
-    mapbuf('t', '<C-\\>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>',opt)
+    mapbuf('n', '<C-\\>', '<CMD>lua require("FTerm").toggle()<CR>', opt)
+    mapbuf('t', '<C-\\>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opt)
 
-    mapbuf('n', '<space>g', '<CMD>lua _G.__fterm_gitui()<CR>',opt)
+    mapbuf('n', '<space>g', '<CMD>lua _G.__fterm_gitui()<CR>', opt)
 
     -- mapbuf('n', '<leader>g', ":lua require('FTerm').run('gitui')<CR>", opt)
 end

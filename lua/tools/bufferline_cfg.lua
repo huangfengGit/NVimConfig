@@ -26,44 +26,44 @@ require("bufferline").setup {
     },
     custom_areas = {
         right = function()
-          local result = {}
-          local seve = vim.diagnostic.severity
-          local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
-          local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
-          local info = #vim.diagnostic.get(0, {severity = seve.INFO})
-          local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
-      
-          if error ~= 0 then
-            table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
-          end
-      
-          if warning ~= 0 then
-            table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
-          end
-      
-          if hint ~= 0 then
-            table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
-          end
-      
-          if info ~= 0 then
-            table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
-          end
-          return result
+            local result = {}
+            local seve = vim.diagnostic.severity
+            local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
+            local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
+            local info = #vim.diagnostic.get(0, { severity = seve.INFO })
+            local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
+
+            if error ~= 0 then
+                table.insert(result, { text = "  " .. error, guifg = "#EC5241" })
+            end
+
+            if warning ~= 0 then
+                table.insert(result, { text = "  " .. warning, guifg = "#EFB839" })
+            end
+
+            if hint ~= 0 then
+                table.insert(result, { text = "  " .. hint, guifg = "#A3BA5E" })
+            end
+
+            if info ~= 0 then
+                table.insert(result, { text = "  " .. info, guifg = "#7EA9A7" })
+            end
+            return result
         end,
-      }
+    }
 }
 
-require("nvim-gps").setup ({
+require("nvim-gps").setup({
     icons = {
         ["class-name"] = " ", -- Classes and class-like objects
         ["function-name"] = " ", -- Functions
         ["method-name"] = " ", -- Methods (functions inside class-like objects)
-        ["container-name"] = '⛶ ',  -- Containers (example: lua tables)
-        ["tag-name"] = '炙',         -- Tags (example: html tags)
+        ["container-name"] = '⛶ ', -- Containers (example: lua tables)
+        ["tag-name"] = '炙', -- Tags (example: html tags)
 
     },
     languages = {
-            -- You can disable any language individually here
+        -- You can disable any language individually here
         ["c"] = true,
         ["cpp"] = true,
         ["go"] = true,
@@ -87,16 +87,17 @@ local function gps_content()
         return ""
     end
 end
+
 local symbols_outline = {
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'filetype'},
+        lualine_a = { 'mode' },
+        lualine_b = { 'filetype' },
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {'location'}
+        lualine_z = { 'location' }
     },
-    filetypes = {'Outline'}
+    filetypes = { 'Outline' }
 }
 
 require("lualine").setup {
@@ -106,29 +107,29 @@ require("lualine").setup {
         theme = "gruvbox_dark",
         disabled_filetypes = {},
         component_separators = "|",
-        section_separators = {left = "", right = ""}
+        section_separators = { left = "", right = "" }
     },
     sections = {
-        lualine_a = {"mode"},
-        lualine_b = {{"branch"}, {"diff"}},
+        lualine_a = { "mode" },
+        lualine_b = { { "branch" }, { "diff" } },
         lualine_c = {
-           {"filename"}, {"lsp_progress"}, {gps_content, cond = gps.is_available}
+            { "filename" }, { "lsp_progress" }, { gps_content, cond = gps.is_available }
         },
         lualine_x = {
             {
                 "diagnostics",
-                sources = {'nvim_diagnostic'},
-                symbols = {error = " ", warn = " ", info = " "}
+                sources = { 'nvim_diagnostic' },
+                symbols = { error = " ", warn = " ", info = " " }
             }
         },
-        lualine_y = {"encoding", "fileformat"},--"filetype",
-        lualine_z = {"progress", "location"}
+        lualine_y = { "encoding", "fileformat" }, --"filetype",
+        lualine_z = { "progress", "location" }
     },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {"filename"},
-        lualine_x = {"location"},
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {}
     },
@@ -136,4 +137,4 @@ require("lualine").setup {
     extensions = {
         "quickfix", "nvim-tree", "toggleterm", "fugitive", symbols_outline
     }
-}   
+}
