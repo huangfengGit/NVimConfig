@@ -1,6 +1,6 @@
 local neovide_config = function()
 
-    -- vim.cmd([[set guifont=Hack\\ Nerd\\ Font\\ Mono:h20]])
+    vim.cmd([[set guifont=Hack\\ Nerd\\ Font\\ Mono:h20]])
     -- vim.cmd('set guifont=:h20')
     -- vim.cmd([[set guifont=JetBrainsMono\ Nerd\ Font:h12]])
     vim.g.neovide_refresh_rate = 60
@@ -73,16 +73,16 @@ local dashboard_config = function()
 end
 
 local multCursor_config = function()
-    vim.g.multi_cursor_use_default_mapping = 0
+    -- vim.g.multi_cursor_use_default_mapping = 0
 
-    vim.g.multi_cursor_start_word_key = '<C-d>'
+    -- vim.g.multi_cursor_start_word_key = '<C-d>'
     -- vim.g.multi_cursor_select_all_word_key = '<A-D>'
     -- vim.g.multi_cursor_start_key           = 'g<C-d>'
     -- vim.g.multi_cursor_select_all_key      = 'g<A-d>'
     -- vim.g.multi_cursor_next_key            = '<C-n>'
     -- vim.g.multi_cursor_prev_key            = '<C-p>'
     -- vim.g.multi_cursor_skip_key            = '<C-x>'
-    vim.g.multi_cursor_quit_key       = '<Esc>'
+    -- vim.g.multi_cursor_quit_key       = '<Esc>'
 end
 
 local load_core = function()
@@ -90,7 +90,7 @@ local load_core = function()
 
     require('lsp')
     require('tools.toggleterm_cfg')
-    require('tools.FTerm_cfg')
+    -- require('tools.FTerm_cfg')
     require('tools.telescope_cfg')
     require('tools.indent_cfg')
     require('tools.bufferline_cfg')
@@ -100,12 +100,16 @@ local load_core = function()
     require('tools.cursor_cfg')
     require('tools.todo_cfg')
     require('tools.nullls_cfg')
+    require('tools.lsp_signature_cfg')
 
     require('core.options')
     vim.cmd('syntax enable')
 
     vim.o.background = "dark"
     vim.cmd([[colorscheme gruvbox]])
+    
+    -- vim.o.background = "light"
+    -- vim.cmd([[colorscheme solarized]])
     -- neovide_config()
     vim.g.dashboard_default_executive = 'telescope'
     dashboard_config()

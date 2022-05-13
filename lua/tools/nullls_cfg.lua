@@ -10,7 +10,7 @@ null_ls.setup({
   },
 
   on_attach = function(client, bufnr)
-    vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()")
+    vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
   end,
 })
 
