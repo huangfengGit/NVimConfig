@@ -30,8 +30,8 @@ require'nvim-tree'.setup {
         args = {}
     },
     filters = {
-        dotfiles = false,
-        custom = {"*.meta","*.scene","*.prefab",".git",".png"}
+        dotfiles = true,
+        custom = {"*.meta","*.scene","*.prefab",".git",".png",".plist"}
     },
     git = {
         enable = true,

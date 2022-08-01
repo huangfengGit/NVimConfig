@@ -10,6 +10,7 @@ return require('packer').startup(function()
   -- 官方配置 不支持其他插件
   -- use "altercation/vim-colors-solarized"
   use { "ellisonleao/gruvbox.nvim" }
+  use 'navarasu/onedark.nvim'
   -- 支持其他插件，但是配色有问题
   -- use 'shaunsingh/solarized.nvim'
 
@@ -65,4 +66,5 @@ return require('packer').startup(function()
   use "terryma/vim-multiple-cursors"
   use "p00f/nvim-ts-rainbow"
   use {"ray-x/lsp_signature.nvim"}
+  use 'karb94/neoscroll.nvim'
 end)

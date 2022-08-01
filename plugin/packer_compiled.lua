@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "C:\\Users\\rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\null-ls.nvim",
@@ -198,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\rubix\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

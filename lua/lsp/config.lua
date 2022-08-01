@@ -101,6 +101,15 @@ local enhance_server_opts = {
 			client.resolved_capabilities.document_formatting = false
 			custom_attach(client)
 		end
+	end,	
+	["volar"] = function(opts)
+		-- Disable `pyrigth`'s format
+		opts.on_attach = function(client)
+			-- print("pyright on attach")
+			client.resolved_capabilities.document_formatting = false
+			-- custom_attach(client)
+      -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+		end
 	end,
 }
 

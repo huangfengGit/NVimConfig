@@ -1,6 +1,7 @@
 local neovide_config = function()
 
-    vim.cmd([[set guifont=Hack\\ Nerd\\ Font\\ Mono:h20]])
+    -- vim.cmd([[set guifont=Hack\\ Nerd\\ Font\\ Mono:h20]])
+    vim.cmd([[set guifont=FiraCode\ Nerd\ Font\ Mono\ Retina:h16]])
     -- vim.cmd('set guifont=:h20')
     -- vim.cmd([[set guifont=JetBrainsMono\ Nerd\ Font:h12]])
     vim.g.neovide_refresh_rate = 60
@@ -110,9 +111,14 @@ local load_core = function()
     
     -- vim.o.background = "light"
     -- vim.cmd([[colorscheme solarized]])
-    -- neovide_config()
+    neovide_config()
     vim.g.dashboard_default_executive = 'telescope'
     dashboard_config()
+
+    -- require('onedark').setup {
+    --     style = 'dark'
+    -- }
+    -- require('onedark').load()
 
     require('core.mapping')
 end
