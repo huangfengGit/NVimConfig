@@ -1,6 +1,3 @@
-
-
-
 local function custom_attach(client)
 	-- require("lsp_signature").on_attach({
 	-- 	bind = true,
@@ -23,34 +20,34 @@ end
 
 local enhance_server_opts = {
 	["sumneko_lua"] = function(opts)
-        opts.on_attach = function(client)
-            custom_attach(client)
-        end
-        opts.settings = {
-            Lua = {
-                diagnostics = { globals = { "vim" },
-                neededFileStatus = {
-                    ["codestyle-check"] = "Any",
-                    },
-                },
-                workspace = {
-                    library = {
+		opts.on_attach = function(client)
+			custom_attach(client)
+		end
+		opts.settings = {
+			Lua = {
+				diagnostics = { globals = { "vim" },
+					neededFileStatus = {
+						["codestyle-check"] = "Any",
+					},
+				},
+				workspace = {
+					library = {
 						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
 					},
-					    maxPreload = 100000,
+					maxPreload = 100000,
 					preloadFileSize = 10000,
 				},
 				telemetry = { enable = false },
-                format = {
-                    enable = true,
-                    -- Put format options here
-                    -- NOTE: the value should be STRING!!
-                    defaultConfig = {
-                        indent_style = "space",
-                        indent_size = "2",
-                    }
-                },
+				format = {
+					enable = true,
+					-- Put format options here
+					-- NOTE: the value should be STRING!!
+					defaultConfig = {
+						indent_style = "space",
+						indent_size = "2",
+					}
+				},
 			},
 		}
 	end,
@@ -65,7 +62,7 @@ local enhance_server_opts = {
 			-- print("tsserver on attach")
 			client.resolved_capabilities.document_formatting = false
 			-- custom_attach(client)
-      -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+			-- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
 		end
 	end,
 	["pyrigth"] = function(opts)
@@ -74,7 +71,7 @@ local enhance_server_opts = {
 			-- print("pyright on attach")
 			client.resolved_capabilities.document_formatting = false
 			-- custom_attach(client)
-      -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+			-- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
 		end
 	end,
 	["dockerls"] = function(opts)
@@ -101,14 +98,10 @@ local enhance_server_opts = {
 			client.resolved_capabilities.document_formatting = false
 			custom_attach(client)
 		end
-	end,	
+	end,
 	["volar"] = function(opts)
-		-- Disable `pyrigth`'s format
 		opts.on_attach = function(client)
-			-- print("pyright on attach")
 			client.resolved_capabilities.document_formatting = false
-			-- custom_attach(client)
-      -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
 		end
 	end,
 }

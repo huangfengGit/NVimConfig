@@ -17,10 +17,13 @@ local neovide_config = function()
 end
 
 local dashboard_config = function()
-    vim.g.dashboard_footer_icon = "🐬 "
-    vim.g.dashboard_default_executive = "telescope"
+    local db = require('dashboard')
 
-    vim.g.dashboard_custom_header = {
+    db.dashboard_footer_icon = "🐬 "
+    db.dashboard_default_executive = "telescope"
+
+    -- vim.g.dashboard_custom_header = {
+    db.custom_header = {
         [[              ...  .......          ]],
         [[         ....................       ]],
         [[    ..'........................     ]],
@@ -40,37 +43,47 @@ local dashboard_config = function()
         [[            ....                    ]]
     }
 
-    vim.g.dashboard_custom_section = {
-        find_file = {
-            description = { " File find                  comma f f " },
-            command = "DashboardFindFile"
+    db.custom_center = {
+        {
+            icon = '  ',
+            desc = 'Find Project                  ',
+            shortcut = 'SPC f p',
+            action = ":lua require'telescope'.extensions.project.project{}"
         },
-        change_colorscheme = {
-            description = { " Scheme change              comma s c " },
-            command = "DashboardChangeColorscheme"
-        },
-        find_project = {
-            description = { " Project find               comma f p " },
-            command = ":lua require'telescope'.extensions.project.project{}"
-            -- command = "Telescope project"
-        },
-        -- find_frecency = {
-        --     description = {" File frecency              comma f r "},
-        --     command = "Telescope frecency"
-        -- },
-        -- find_history = {
-        --     description = {" File history               comma f e "},
-        --     command = "DashboardFindHistory"
-        -- },
-        -- file_new = {
-        --     description = {" File new                   comma f n "},
-        --     command = "DashboardNewFile"
-        -- },
-        -- find_word = {
-        --     description = {" Word find                  comma f w "},
-        --     command = "DashboardFindWord"
-        -- }
     }
+
+    -- vim.g.dashboard_custom_section = {
+    -- db.custom_center = {
+    --     {
+    --         desc  = { " File find                  comma f f " },
+    --         action = "DashboardFindFile"
+    --     },
+    -- change_colorscheme = {
+    --     description = { " Scheme change              comma s c " },
+    --     command = "DashboardChangeColorscheme"
+    -- },
+    -- find_project = {
+    --     description = { " Project find               comma f p " },
+    --     command = ":lua require'telescope'.extensions.project.project{}"
+    --     -- command = "Telescope project"
+    -- },
+    -- find_frecency = {
+    --     description = {" File frecency              comma f r "},
+    --     command = "Telescope frecency"
+    -- },
+    -- find_history = {
+    --     description = {" File history               comma f e "},
+    --     command = "DashboardFindHistory"
+    -- },
+    -- file_new = {
+    --     description = {" File new                   comma f n "},
+    --     command = "DashboardNewFile"
+    -- },
+    -- find_word = {
+    --     description = {" Word find                  comma f w "},
+    --     command = "DashboardFindWord"
+    -- }
+    -- }
 end
 
 local multCursor_config = function()
@@ -91,7 +104,6 @@ local load_core = function()
 
     require('lsp')
     require('tools.toggleterm_cfg')
-    -- require('tools.FTerm_cfg')
     require('tools.telescope_cfg')
     require('tools.indent_cfg')
     require('tools.bufferline_cfg')
@@ -102,17 +114,17 @@ local load_core = function()
     require('tools.todo_cfg')
     require('tools.nullls_cfg')
     require('tools.lsp_signature_cfg')
+    require('tools.volar_cfg')
 
     require('core.options')
     vim.cmd('syntax enable')
 
     vim.o.background = "dark"
     vim.cmd([[colorscheme gruvbox]])
-    
+
     -- vim.o.background = "light"
     -- vim.cmd([[colorscheme solarized]])
     neovide_config()
-    vim.g.dashboard_default_executive = 'telescope'
     dashboard_config()
 
     -- require('onedark').setup {
